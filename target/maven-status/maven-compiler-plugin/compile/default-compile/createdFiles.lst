@@ -1,0 +1,14 @@
+servlet\HelloService.class
+servlet\HelloWorldServlet.class
+com\perigea\lavoroejb\api\TestBeanImpl.class
+com\perigea\lavoroejb\api\AziendaServicesImpl.class
+com\perigea\lavoroejb\model\Azienda.class
+com\perigea\lavoroejb\em\AziendaDao.class
+com\perigea\lavoroejb\em\ImpiegatoDao.class
+com\perigea\lavoroejb\em\Dao.class
+com\perigea\lavoroejb\api\TestBean.class
+com\perigea\lavoroejb\api\AziendaServices.class
+com\perigea\lavoroejb\api\ImpiegatoServices.class
+com\perigea\lavoroejb\api\ImpiegatoServicesImpl.class
+com\perigea\lavoroejb\api\LavoroApplication.class
+com\perigea\lavoroejb\model\Impiegato.class
