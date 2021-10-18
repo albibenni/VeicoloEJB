@@ -17,6 +17,7 @@ public class Cane implements Serializable{ //
 	private String nome;
 	private String razza;
 	private int padrone_id;
+	
 	public String getNome() {
 		return nome;
 	}

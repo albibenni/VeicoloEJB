@@ -3,19 +3,24 @@ package servlet;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import dao.CaneDao;
+import dao.PadroneDao;
+import model.Padrone;
+
 @Stateless
 public class HelloService {
-
-//	@Inject
-//	PersonaDao personaDao;
+	@Inject
+	CaneDao caneDao;
+	@Inject
+	PadroneDao padroneDao;
 	
 	public String createHelloMessage(String name) {
 		return "Hello " + name + "!";
 	}
 
-//	public void getAll() {
-//		Persona p=personaDao.getById(1L);
-//		System.out.println(p);
-//	}
+	public void getAll() {
+		Padrone p= padroneDao.getById(1);
+		System.out.println(p);
+	}
 
 }
