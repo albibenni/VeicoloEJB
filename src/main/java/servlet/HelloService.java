@@ -19,7 +19,7 @@ public class HelloService {
 	}
 
 	public void getAll() {
-		Padrone p= padroneDao.getById(1);
+		Padrone p= (Padrone) padroneDao.getAll(); //?
 		System.out.println(p);
 	}
 

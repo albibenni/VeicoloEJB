@@ -4,13 +4,19 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "cane")
+@NamedQuery(
+	    name="findAllCani",
+	    query="SELECT c FROM Cane c"
+	)
 public class Cane implements Serializable{ //
 	//Eclipse:(1) Select: 
 	//(Your Project) -> Properties -> JPA;
@@ -26,9 +32,10 @@ public class Cane implements Serializable{ //
 	@Column(name = "nome")
 	private String nome;
 	
+	@Column(name = "razza")
 	private String razza;
 	
-	@ManyToOne
+	@ManyToOne (fetch = FetchType.LAZY)
 	@JoinColumn(name = "padrone_id")
 	private Padrone padrone;
 	

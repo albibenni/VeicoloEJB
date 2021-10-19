@@ -3,33 +3,52 @@ package model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "padrone")
+@NamedQuery(
+	    name="findAllDogOwners",
+	    query="SELECT p FROM Padrone p"
+	)
 public class Padrone implements Serializable{
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	private int padrone_id;
-	private String nome;
-	private String cognome;
-	private Date data_nascita;
+	@Column(name = "padrone_id")
+	private int id;
 	
-	@OneToMany(mappedBy="padrone") //nome che mappa l'entita'
+	@Column(name = "nome")
+	private String nome;
+	
+	@Column(name = "cognome")
+	private String cognome;
+	
+	@Column(name = "data_nascita")
+	private Date dataNascita;
+	
+	@OneToMany(fetch = FetchType.LAZY,  mappedBy="padrone") //nome che mappa l'entita'
 	private List<Cane> cani;
 	
+	@ManyToMany (mappedBy = "padroneOfGatto")
+	private Set<Gatto> gatto; //to insert in postgres
+	
+	
+	
 	public Date getDataNascita() {
-		return data_nascita;
+		return dataNascita;
 	}
-	public void setDataNascita(Date data_nascita) {
-		this.data_nascita = data_nascita;
+	public void setDataNascita(Date datNascita) {
+		this.dataNascita = datNascita;
 	}
 	public String getCognome() {
 		return cognome;
@@ -45,7 +64,7 @@ public class Padrone implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Persona [id=" + padrone_id + ", nome=" + nome + ", cognome=" + cognome +", data di nascita=" + data_nascita +"]";
+		return "Persona [id=" + id + ", nome=" + nome + ", cognome=" + cognome +", data di nascita=" + dataNascita +"]";
 	}
 
 }
