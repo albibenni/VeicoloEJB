@@ -20,14 +20,14 @@ public class PadroneDao implements Dao<Padrone> { //farlo con interfaccia dao(cr
 //	}
 
 	@Override
-	public Optional<Padrone> get(int id) {
+	public Padrone get(int id) {
 		// TODO Auto-generated method stub
-		return Optional.ofNullable(em.find(Padrone.class, id));
+		return em.find(Padrone.class, id);
 	}
 
 	@Override
 	public List<Padrone> getAll() {
-		return em.createNamedQuery("findAllDogOwners", Padrone.class)
+		return em.createNamedQuery("findAllOwners", Padrone.class)
 				.getResultList();
 	}
 

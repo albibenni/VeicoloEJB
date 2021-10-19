@@ -36,7 +36,6 @@ public class Gatto {
 			joinColumns = @JoinColumn(name = "gatto_id"),
 			inverseJoinColumns = @JoinColumn(name = "padrone_id")
 			)
-	
 	private Set<Padrone> padroneOfGatto;
 	
 	

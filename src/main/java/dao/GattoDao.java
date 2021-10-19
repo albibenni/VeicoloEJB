@@ -16,9 +16,9 @@ public class GattoDao implements Dao<Gatto> {
 	private EntityManager em;
 
 	@Override
-	public Optional<Gatto> get(int id) {
+	public Gatto get(int id) {
 		// TODO Auto-generated method stub
-		return Optional.ofNullable(em.find(Gatto.class, id));
+		return em.find(Gatto.class, id);
 	}
 
 	@Override

@@ -21,9 +21,9 @@ public class CaneDao implements Dao<Cane>{
 //	}
 
 	@Override
-	public Optional<Cane> get(int id) {
+	public Cane get(int id) {
 		// TODO Auto-generated method stub
-		return Optional.ofNullable(em.find(Cane.class, id));
+		return em.find(Cane.class, id);
 	}
 
 	@Override

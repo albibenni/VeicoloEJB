@@ -10,16 +10,21 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "padrone")
-@NamedQuery(
-	    name="findAllDogOwners",
-	    query="SELECT p FROM Padrone p"
-	)
+@NamedQueries({
+	@NamedQuery(
+		    name="findAllOwners",
+		    query="SELECT p FROM Padrone p"
+		), //HQL >> for hibernate
+})
 public class Padrone implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -41,7 +46,6 @@ public class Padrone implements Serializable{
 	
 	@ManyToMany (mappedBy = "padroneOfGatto")
 	private Set<Gatto> gatto; //to insert in postgres
-	
 	
 	
 	public Date getDataNascita() {
