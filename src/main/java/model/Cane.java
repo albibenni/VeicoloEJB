@@ -1,10 +1,16 @@
 package model;
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "cane")
 public class Cane implements Serializable{ //
 	//Eclipse:(1) Select: 
 	//(Your Project) -> Properties -> JPA;
@@ -12,11 +18,19 @@ public class Cane implements Serializable{ //
 	//(3) Press "Apply".
 
 	private static final long serialVersionUID = 1L;
+	
 	@Id
-	private int cane_id;
+	@Column(name = "cane_id")
+	private int caneId;
+	
+	@Column(name = "nome")
 	private String nome;
+	
 	private String razza;
-	private int padrone_id;
+	
+	@ManyToOne
+	@JoinColumn(name = "padrone_id")
+	private Padrone padrone;
 	
 	public String getNome() {
 		return nome;
@@ -29,11 +43,5 @@ public class Cane implements Serializable{ //
 	}
 	public void setRazza(String razza) {
 		this.razza = razza;
-	}
-	public int getPadrone_id() {
-		return padrone_id;
-	}
-	public void setPadrone_id(int padrone_id) {
-		this.padrone_id = padrone_id;
 	}
 }

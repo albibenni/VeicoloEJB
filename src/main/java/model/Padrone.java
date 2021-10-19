@@ -2,8 +2,11 @@ package model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Padrone implements Serializable{
@@ -18,6 +21,10 @@ public class Padrone implements Serializable{
 	private String nome;
 	private String cognome;
 	private Date data_nascita;
+	
+	@OneToMany(mappedBy="padrone") //nome che mappa l'entita'
+	private List<Cane> cani;
+	
 	public Date getDataNascita() {
 		return data_nascita;
 	}

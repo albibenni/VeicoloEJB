@@ -7,9 +7,9 @@ import javax.persistence.PersistenceContext;
 import model.Padrone;
 
 @Stateless
-public class PadroneDao {
+public class PadroneDao { //farlo con interfaccia dao(crud)
 	
-	@PersistenceContext(unitName = "persistenceUnit1")
+	@PersistenceContext(unitName = "persistenceUnit1") // tipo 'inject'
 	private EntityManager em;
 	
 	public Padrone getById(int padroneId) {
