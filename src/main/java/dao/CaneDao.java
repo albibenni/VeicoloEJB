@@ -10,6 +10,8 @@ import javax.persistence.PersistenceContext;
 import model.Cane;
 
 @Stateless
+//requires_new
+//prova con 1 o piu transazioni contemporane
 public class CaneDao implements Dao<Cane>{
 	//The name of the persistence unit as defined in the persistence.xml file. 
 	//If the unitName element is specified, the persistence unit for the entity manager that is accessible in JNDI must have the same name.

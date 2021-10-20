@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -8,6 +9,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedNativeQueries;
@@ -30,6 +33,7 @@ public class Padrone implements Serializable{
 	
 	@Id
 	@Column(name = "padrone_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
 	@Column(name = "nome")
@@ -38,22 +42,12 @@ public class Padrone implements Serializable{
 	@Column(name = "cognome")
 	private String cognome;
 	
-	@Column(name = "data_nascita")
-	private Date dataNascita;
-	
 	@OneToMany(fetch = FetchType.LAZY,  mappedBy="padrone") //nome che mappa l'entita'
 	private List<Cane> cani;
 	
 	@ManyToMany (mappedBy = "padroneOfGatto")
 	private Set<Gatto> gatto; //to insert in postgres
-	
-	
-	public Date getDataNascita() {
-		return dataNascita;
-	}
-	public void setDataNascita(Date datNascita) {
-		this.dataNascita = datNascita;
-	}
+
 	public String getCognome() {
 		return cognome;
 	}
@@ -68,7 +62,8 @@ public class Padrone implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Persona [id=" + id + ", nome=" + nome + ", cognome=" + cognome +", data di nascita=" + dataNascita +"]";
+		return "Persona [id=" + id + ", nome=" + nome +
+				", cognome=" + cognome +"]";
 	}
 
 }
