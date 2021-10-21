@@ -15,10 +15,6 @@ public class PadroneDao /*implements Dao<Padrone>*/ {
 	@PersistenceContext(unitName = "persistenceUnit1") // tipo 'inject'
 	private EntityManager em;
 	
-//	public Padrone getById(int padroneId) {
-//		return em.find(Padrone.class, padroneId);
-//	}
-
 //	@Override
 	public Padrone get(int id) {
 		// TODO Auto-generated method stub

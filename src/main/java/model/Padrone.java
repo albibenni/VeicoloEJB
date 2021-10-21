@@ -36,6 +36,12 @@ public class Padrone implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	@Column(name = "nome")
 	private String nome;
 	

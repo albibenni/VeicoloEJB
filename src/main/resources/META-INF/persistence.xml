@@ -8,9 +8,9 @@
         
         <properties>
         	<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/benni" /> <!-- BD Mane -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/postgres" /> <!-- DB Mane -->
             <property name="javax.persistence.jdbc.user" value="postgres" /> <!-- DB User -->
-            <property name="javax.persistence.jdbc.password" value="1234" /> <!-- DB Password -->
+            <property name="javax.persistence.jdbc.password" value="postgres" /> <!-- DB Password -->
 
      	 	<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/> <!-- DB Dialect PostgreSQLDialect deprecated-->     	 
      	 
